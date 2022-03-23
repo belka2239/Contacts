@@ -57,7 +57,7 @@ class SectionContactListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true) // Этот метод снимает выделение с выбраной ячейки, когда мы тапаем по ней
     }
 
 }
