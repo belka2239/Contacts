@@ -30,12 +30,26 @@ class SectionContactListViewController: UITableViewController {
         let person = persons[indexPath.section]
         var content = cell.defaultContentConfiguration()
         
-        switch indexPath.row {
-        case 0:
+        if indexPath.row == 0 {
             content.text = person.phoneNumber
-        default:
+// Добавим изображение для телефона
+            content.image = UIImage(systemName: Contacts.phone.rawValue)
+        } else {
             content.text = person.email
+// Добавим изображение для email
+            content.image = UIImage(systemName: Contacts.email.rawValue)
+
         }
+ 
+// Можно сделать перебор при помощи свича или использовать if else
+//        switch indexPath.row {
+//        case 0:
+//            content.text = person.phoneNumber
+//            content.image = UIImage(systemName: Contacts.phone.rawValue)
+//        default:
+//            content.text = person.email
+//            content.image = UIImage(systemName: Contacts.email.rawValue)
+//        }
         
         cell.contentConfiguration = content
 

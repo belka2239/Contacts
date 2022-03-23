@@ -21,15 +21,14 @@ struct Person {
 
 extension Person {
     static func getContactList() -> [Person] {
-       
-        let dataManager = DataManager()
-        
+               
         var persons: [Person] = []
         
-        let names = dataManager.names.shuffled()
-        let surnames = dataManager.surnames.shuffled()
-        let phones = dataManager.phones.shuffled()
-        let emails = dataManager.emails.shuffled()
+// Обращаемся к DataManager, через экземпляр класса shared
+        let names = DataManager.shared.names.shuffled()
+        let surnames = DataManager.shared.surnames.shuffled()
+        let phones = DataManager.shared.phones.shuffled()
+        let emails = DataManager.shared.emails.shuffled()
         
         let iterationCount = min(names.count, surnames.count, phones.count, emails.count)
         
@@ -46,4 +45,10 @@ extension Person {
         
         return persons
     }
+}
+
+// Создадим перечисление для изображений слева от номера тел и email
+enum Contacts: String {
+    case phone = "phone"
+    case email = "tray"
 }
